@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class task3 {
 
     // Метод для знаходження найбільшого спільного дільника (НСД) за алгоритмом Евкліда
@@ -17,20 +19,24 @@ public class task3 {
 
     // Метод main для запуску програми
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Будь ласка, введіть 2 цілих числа.");
-            return;
-        }
+        Scanner scanner = new Scanner(System.in);
 
         try {
-            int num1 = Integer.parseInt(args[0]);
-            int num2 = Integer.parseInt(args[1]);
+            // Запитуємо перше число
+            System.out.print("Введіть перше число: ");
+            int num1 = scanner.nextInt();
+
+            // Запитуємо друге число
+            System.out.print("Введіть друге число: ");
+            int num2 = scanner.nextInt();
 
             System.out.println("Введені числа: " + num1 + " і " + num2);
             System.out.println("Найбільший спільний дільник (НСД): " + gcd(num1, num2));
             System.out.println("Найменше спільне кратне (НСК): " + lcm(num1, num2));
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             System.out.println("Будь ласка, введіть правильні цілі числа.");
+        } finally {
+            scanner.close();
         }
     }
 }
